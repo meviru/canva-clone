@@ -1,5 +1,11 @@
+import IntroOptions from "./_components/IntroOptions";
+
 const Workspace = () => {
-  return <div>Workspace</div>;
+  return (
+    <>
+      <IntroOptions />
+    </>
+  );
 };
 
 export default Workspace;
