@@ -1,18 +1,20 @@
 "use client";
 
+import { UserDetailContext } from "@/context/UserDetailContext";
 import { api } from "@/convex/_generated/api";
 import { useUser } from "@stackframe/stack";
 import { useMutation } from "convex/react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const Provider = ({ children }) => {
   const user = useUser();
+  const createUserMutation = useMutation(api.users.CreateNewUser);
+
+  const [userDetail, setUserDetail] = useState(null);
 
   useEffect(() => {
     user && createUser();
   }, [user]);
-
-  const createUserMutation = useMutation(api.users.CreateNewUser);
 
   const createUser = async () => {
     const data = {
@@ -21,9 +23,15 @@ const Provider = ({ children }) => {
       picture: user?.profileImageUrl,
     };
     const result = await createUserMutation(data);
-    console.log(result);
+    setUserDetail(result);
   };
-  return <div>{children}</div>;
+  return (
+    <div>
+      <UserDetailContext value={{ userDetail, setUserDetail }}>
+        {children}
+      </UserDetailContext>
+    </div>
+  );
 };
 
 export default Provider;
