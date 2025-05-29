@@ -15,6 +15,9 @@ const poppins = Poppins({
 export const metadata = {
   title: "Cavna Clone",
   description: "Canva clone using Next.js",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({ children }) {

@@ -20,16 +20,16 @@ const Sidebar = () => {
           return (
             <div
               key={i}
-              className="group p-1 flex items-center flex-col mb-3 cursor-pointer"
+              className="group p-1 flex items-center flex-col mb-2 cursor-pointer"
             >
               <IconTag
-                width={42}
-                height={42}
-                strokeWidth={1.75}
-                className={`p-2 rounded-lg text-gray-500 transition-colors group-hover:bg-violet-200 group-hover:text-violet-600 ${menu.path === path && "bg-violet-200 text-violet-600"}`}
+                width={40}
+                height={40}
+                strokeWidth={1.5}
+                className={`p-2 rounded-lg text-gray-500 transition-colors group-hover:bg-purple-200 group-hover:text-violet-600 ${menu.path === path && "bg-purple-200 text-violet-600"}`}
               />
               <h2
-                className={`text-xs text-gray-500 transition-colors group-hover:text-violet-600 ${menu.path === path && "text-violet-600"}`}
+                className={`text-[11px] font-medium text-gray-500 transition-colors group-hover:text-violet-600 ${menu.path === path && "text-violet-600"}`}
               >
                 {menu.name}
               </h2>
