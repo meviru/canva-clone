@@ -13,8 +13,8 @@ const SearchInput = () => {
           placeholder="Search millions of templates"
           className="outline-0 bg-white p-2 px-13 w-full text-sm h-[75px] rounded-[22px]"
         />
-        <button className="absolute top-1/2 right-4 size-9 rounded-full bg-gray-200 cursor-pointer grid place-items-center -translate-y-1/2">
-          <IconArrowRight className="opacity-70 w-full" />
+        <button className="absolute top-1/2 right-4 size-8 rounded-full bg-gray-200 cursor-pointer grid place-items-center -translate-y-1/2">
+          <IconArrowRight size={20} className="opacity-70 w-full" />
         </button>
       </div>
     </div>

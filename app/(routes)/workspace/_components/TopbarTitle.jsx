@@ -14,7 +14,7 @@ const TopbarTitle = () => {
         <Image src={headerBg} alt="Header BG" width="100%" />
       </div>
       <h1
-        className="drop-shadow-2xl text-[40px] mt-5 font-medium leading-normal tracking-tighter bg-clip-text text-transparent"
+        className="text-[40px] text-center mt-5 font-medium leading-normal tracking-tighter drop-shadow-2xl bg-clip-text text-transparent"
         style={{
           backgroundImage:
             "linear-gradient(90deg,rgba(0, 196, 204, 1) 0%, rgba(90, 50, 250, 1) 50%)",
