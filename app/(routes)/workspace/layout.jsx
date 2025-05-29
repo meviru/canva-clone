@@ -5,7 +5,7 @@ const WorkspaceLayout = ({ children }) => {
     <>
       <div className="flex">
         <Sidebar />
-        <div className="p-4 grow">{children}</div>
+        <div className="p-[5px] grow">{children}</div>
       </div>
     </>
   );
