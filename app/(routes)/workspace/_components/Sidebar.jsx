@@ -4,6 +4,7 @@ import { WorkspaceMenu } from "@/services/Options";
 import { UserButton } from "@stackframe/stack";
 import { IconPlus } from "@tabler/icons-react";
 import { usePathname } from "next/navigation";
+import CustomCanvasDialog from "./CustomCanvasDialog";
 
 /**
  * The sidebar component that appears on the left side of the screen.
@@ -17,10 +18,12 @@ const Sidebar = () => {
 
   return (
     <div className="h-screen flex flex-col items-center w-[75px] p-2 pb-4 shadow bg-violet-50">
-      <div className="group flex flex-col items-center justify-center p-2 mb-2 cursor-pointer">
-        <IconPlus className="bg-violet-600 rounded-full p-1 h-8 w-8 text-white transition-colors group-hover:bg-violet-700" />
-        <h2 className="text-xs text-violet-600 mt-1">Create</h2>
-      </div>
+      <CustomCanvasDialog>
+        <div className="group flex flex-col items-center justify-center p-2 mb-2 cursor-pointer">
+          <IconPlus className="bg-violet-600 rounded-full p-1 h-8 w-8 text-white transition-colors group-hover:bg-violet-700" />
+          <h2 className="text-xs text-violet-600 mt-1">Create</h2>
+        </div>
+      </CustomCanvasDialog>
       <div className="grow">
         {WorkspaceMenu.map((menu, i) => {
           const IconTag = menu.path !== path ? menu.icon : menu.iconFilled;

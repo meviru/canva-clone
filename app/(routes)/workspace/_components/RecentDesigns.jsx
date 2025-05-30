@@ -5,6 +5,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import emptyStateImage from "@/public/01f7f458bbbcae4163382d28175f527d.webp";
 import { Button } from "@/components/ui/button";
+import CustomCanvasDialog from "./CustomCanvasDialog";
 
 const RecentDesigns = () => {
   const [designList, setDesignList] = useState([]);
@@ -23,10 +24,12 @@ const RecentDesigns = () => {
           <p className="text-center mt-1 mb-5">
             You don't have any designs created.
           </p>
-          <Button className="flex items-center justify-center cursor-pointer">
-            <IconPlus />
-            Create new
-          </Button>
+          <CustomCanvasDialog>
+            <Button className="flex items-center justify-center cursor-pointer">
+              <IconPlus />
+              Create new
+            </Button>
+          </CustomCanvasDialog>
         </div>
       ) : (
         <div></div>
