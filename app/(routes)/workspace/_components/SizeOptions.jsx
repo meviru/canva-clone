@@ -3,10 +3,13 @@ import { UserDetailContext } from "@/context/UserDetailContext";
 import { api } from "@/convex/_generated/api";
 import { canvasSizeOptions } from "@/services/Options";
 import { useMutation } from "convex/react";
+import { useRouter } from "next/navigation";
 import { useContext } from "react";
 import { toast } from "sonner";
 
 const SizeOptions = () => {
+  const router = useRouter();
+
   const createDesignRecord = useMutation(api.designs.CreateNewDesign);
   const { userDetail } = useContext(UserDetailContext);
 
@@ -22,6 +25,7 @@ const SizeOptions = () => {
       height: option.height,
       uid: userDetail?._id,
     });
+    router.push(`/design/${result._id}`);
   };
 
   return (
@@ -44,7 +48,9 @@ const SizeOptions = () => {
           <h2 className="text-xs text-gray-600 text-center font-medium mt-2 mb-1 max-w-20">
             {option.name}
           </h2>
-          <span className="text-xs font-medium opacity-0 scale-[0.9] text-gray-400 transition-opacity group-hover:opacity-100">Create new</span>
+          <span className="text-xs font-medium opacity-0 scale-[0.9] text-gray-400 transition-opacity group-hover:opacity-100">
+            Create new
+          </span>
         </li>
       ))}
     </ul>

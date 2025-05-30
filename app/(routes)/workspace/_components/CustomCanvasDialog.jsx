@@ -14,10 +14,13 @@ import { UserDetailContext } from "@/context/UserDetailContext";
 import { api } from "@/convex/_generated/api";
 import { IconLoader } from "@tabler/icons-react";
 import { useMutation } from "convex/react";
+import { useRouter } from "next/navigation";
 import { useContext, useState } from "react";
 import { toast } from "sonner";
 
 const CustomCanvasDialog = ({ children }) => {
+  const router = useRouter();
+
   const [name, setName] = useState();
   const [width, setWidth] = useState();
   const [height, setHeight] = useState();
@@ -37,6 +40,7 @@ const CustomCanvasDialog = ({ children }) => {
     });
     setLoading(false);
     resetForm();
+    router.push(`/design/${result._id}`);
   };
 
   const resetForm = () => {
