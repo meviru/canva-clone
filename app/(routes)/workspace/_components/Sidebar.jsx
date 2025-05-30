@@ -5,6 +5,13 @@ import { UserButton } from "@stackframe/stack";
 import { IconPlus } from "@tabler/icons-react";
 import { usePathname } from "next/navigation";
 
+/**
+ * The sidebar component that appears on the left side of the screen.
+ *
+ * This component renders the "Create" button and the navigation menu for the
+ * various pages of the workspace. It also renders the user button at the bottom
+ * of the sidebar.
+ */
 const Sidebar = () => {
   const path = usePathname();
 

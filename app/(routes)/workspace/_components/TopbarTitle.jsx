@@ -1,6 +1,9 @@
 import headerBg from "@/public/7a0b19b4d022bb1bd2b9123033623631.webp";
 import Image from "next/image";
 
+/**
+ * A topbar component with a gradient background and a title.
+ */
 const TopbarTitle = () => {
   return (
     <>

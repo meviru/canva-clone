@@ -1,8 +1,9 @@
-import { Poppins } from "next/font/google";
+import { Toaster } from "@/components/ui/sonner";
 import { StackProvider, StackTheme } from "@stackframe/stack";
+import { Poppins } from "next/font/google";
 import { stackServerApp } from "../stack";
-import "./globals.css";
 import { ConvexClientProvider } from "./ConvexClientProvider";
+import "./globals.css";
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
           <StackTheme>
             <ConvexClientProvider>
               {children}
+              <Toaster />
             </ConvexClientProvider>
           </StackTheme>
         </StackProvider>
