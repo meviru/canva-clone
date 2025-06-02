@@ -26,7 +26,7 @@ const Provider = ({ children }) => {
     setUserDetail(result);
   };
   return (
-    <div>
+    <div className="min-h-screen">
       <UserDetailContext value={{ userDetail, setUserDetail }}>
         {children}
       </UserDetailContext>

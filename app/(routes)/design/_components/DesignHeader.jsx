@@ -11,7 +11,7 @@ import {
   IconArrowBackUp,
   IconArrowForwardUp,
   IconCloudCheck,
-  IconDiamondFilled,
+  IconCrown,
   IconMessage2,
   IconUpload,
 } from "@tabler/icons-react";
@@ -67,7 +67,7 @@ const DesignHeader = ({ DesignInfo }) => {
           size="lg"
           variant="ghost"
         >
-          <IconDiamondFilled className="size-5" />
+          <IconCrown className="size-5" color="#fdbc68" fill="#fdbc68" />
           Upgrade your plan
         </Button>
         <UserButton />

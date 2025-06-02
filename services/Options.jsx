@@ -5,6 +5,8 @@ import {
   IconBrandPinterestFilled,
   IconBrandX,
   IconBrandYoutubeFilled,
+  IconClipboardTypography,
+  IconClipboardTypographyFilled,
   IconCreditCard,
   IconCreditCardFilled,
   IconFileFilled,
@@ -14,7 +16,16 @@ import {
   IconHomeFilled,
   IconLayout2,
   IconLayout2Filled,
+  IconPhoto,
+  IconPhotoFilled,
   IconPresentationFilled,
+  IconSettings,
+  IconSettingsFilled,
+  IconSortAscendingShapes,
+  IconSortAscendingShapesFilled,
+  IconSparkles,
+  IconTable,
+  IconTableFilled,
 } from "@tabler/icons-react";
 
 export const WorkspaceMenu = [
@@ -121,5 +132,44 @@ export const canvasSizeOptions = [
     height: 700,
     icon: IconBrandPinterestFilled,
     background: "#E60023",
+  },
+];
+
+export const sideBarMenu = [
+  {
+    name: "Desings",
+    icon: IconTable,
+    iconFilled: IconTableFilled,
+    iconColor: "#138eff",
+  },
+  {
+    name: "Elements",
+    icon: IconSortAscendingShapes,
+    iconFilled: IconSortAscendingShapesFilled,
+    iconColor: "#4a53fa",
+  },
+  {
+    name: "Photos",
+    icon: IconPhoto,
+    iconFilled: IconPhotoFilled,
+    iconColor: "#0ba84a",
+  },
+  {
+    name: "Text",
+    icon: IconClipboardTypography,
+    iconFilled: IconClipboardTypographyFilled,
+    iconColor: "#992bff",
+  },
+  {
+    name: "AI",
+    icon: IconSparkles,
+    iconFilled: IconSparkles,
+    iconColor: "#ff6105",
+  },
+  {
+    name: "Settings",
+    icon: IconSettings,
+    iconFilled: IconSettingsFilled,
+    iconColor: "#ff3b4b",
   },
 ];
