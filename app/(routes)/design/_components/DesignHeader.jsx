@@ -1,7 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { UserButton } from "@stackframe/stack";
 import {
   IconArrowBackUp,
@@ -13,7 +17,7 @@ import {
 } from "@tabler/icons-react";
 import Image from "next/image";
 
-const DesignHeader = () => {
+const DesignHeader = ({ DesignInfo }) => {
   return (
     <div className="p-2 px-5 flex items-center justify-between bg-linear-90 from-[#00c4cc] to-[#7d2ae8]">
       <div className="flex items-center">
@@ -46,14 +50,8 @@ const DesignHeader = () => {
         </div>
         <Separator orientation="vertical" className="mx-3 min-h-8 opacity-30" />
         <Tooltip>
-          <TooltipTrigger>
-            <Button
-              size="icon"
-              variant="ghost"
-              className="cursor-pointer border-none text-white transition-colors hover:bg-white/5 hover:text-white"
-            >
-              <IconCloudCheck strokeWidth="1.75" className="size-6" />
-            </Button>
+          <TooltipTrigger className="cursor-pointer border-none text-white transition-colors hover:bg-white/5 hover:text-white">
+            <IconCloudCheck strokeWidth="1.75" className="size-6" />
           </TooltipTrigger>
           <TooltipContent>All changes saved</TooltipContent>
         </Tooltip>
@@ -61,6 +59,7 @@ const DesignHeader = () => {
       <div className="flex items-center">
         <Input
           placeholder="Untitled design"
+          value={DesignInfo?.name}
           className="shadow-none font-medium h-10 max-w-56 placeholder:text-white border-1 border-transparent text-white mr-4 transition-all focus-visible:ring-0 hover:border-white/30 focus:border-white/30"
         />
         <Button
