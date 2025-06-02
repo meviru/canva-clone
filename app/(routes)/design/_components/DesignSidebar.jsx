@@ -1,41 +1,49 @@
 import { sideBarMenu } from "@/services/Options";
 import { IconCrown } from "@tabler/icons-react";
-import React from "react";
+import { useState } from "react";
+import SidebarSettings from "./SidebarSettings";
 
 const DesignSidebar = () => {
+  const [selectedMenu, setSelectedMenu] = useState("");
   return (
-    <ul className="w-[75px] flex flex-col">
-      {sideBarMenu.map((menu, index) => (
-        <li
-          key={index}
-          className="group flex flex-col items-center justify-center h-[75px] cursor-pointer"
-        >
-          <div className="relative flex items-center justify-center size-8 rounded-md text-gray-500 transition-all group-hover:bg-white group-hover:shadow-xl">
-            {menu.name.toLowerCase() === "ai" && (
-              <IconCrown
-                size="14"
-                color="#fdbc68"
-                fill="#fdbc68"
-                className="absolute -top-1.5 -right-1.5"
+    <div className={`flex ${!!selectedMenu && "bg-white"}`}>
+      <ul className="w-[75px] flex flex-col">
+        {sideBarMenu.map((menu, index) => (
+          <li
+            key={index}
+            onClick={() => setSelectedMenu(menu.name)}
+            className="group flex flex-col items-center justify-center h-[75px] cursor-pointer"
+          >
+            <div
+              className={`relative flex items-center justify-center size-8 rounded-md text-gray-500 transition-all ${selectedMenu == menu.name && "bg-white shadow-xl"} group-hover:bg-white group-hover:shadow-md`}
+            >
+              {menu.name.toLowerCase() === "ai" && (
+                <IconCrown
+                  size="14"
+                  color="#fdbc68"
+                  fill="#fdbc68"
+                  className="absolute -top-1.5 -right-1.5"
+                />
+              )}
+              <menu.icon
+                strokeWidth="1.65"
+                className={`transition-opacity ${selectedMenu == menu.name && "opacity-0"} group-hover:opacity-0`}
               />
-            )}
-            <menu.icon
-              strokeWidth="1.65"
-              className="transition-opacity opacity-100 group-hover:opacity-0"
-            />
-            <menu.iconFilled
-              strokeWidth="1.65"
-              fill={`${menu.iconColor}`}
-              color={`${menu.iconColor}`}
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity opacity-0 group-hover:opacity-100"
-            />
-          </div>
-          <h2 className="text-[11px] font-medium text-gray-500 transition-colors">
-            {menu.name}
-          </h2>
-        </li>
-      ))}
-    </ul>
+              <menu.iconFilled
+                strokeWidth="1.65"
+                fill={`${menu.iconColor}`}
+                color={`${menu.iconColor}`}
+                className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity ${selectedMenu !== menu.name && "opacity-0"} group-hover:opacity-100`}
+              />
+            </div>
+            <h2 className="text-[11px] font-medium text-gray-500 transition-colors">
+              {menu.name}
+            </h2>
+          </li>
+        ))}
+      </ul>
+      {selectedMenu && <SidebarSettings selectedMenu={selectedMenu} />}
+    </div>
   );
 };
 
