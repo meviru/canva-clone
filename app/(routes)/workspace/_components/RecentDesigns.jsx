@@ -57,7 +57,7 @@ const RecentDesigns = () => {
               >
                 <CardContent className="p-4 flex items-center justify-center bg-gray-200 overflow-hidden rounded-xl">
                   <Image
-                    src=""
+                    src={"https://placehold.co/400"}
                     alt={design.name}
                     width={200}
                     height={160}

@@ -25,7 +25,7 @@ const SizeOptions = () => {
       height: option.height,
       uid: userDetail?._id,
     });
-    router.push(`/design/${result._id}`);
+    router.push(`/design/${result}`);
   };
 
   return (
@@ -37,7 +37,7 @@ const SizeOptions = () => {
           className="group flex flex-col items-center justify-center cursor-pointer"
         >
           <div
-            className="text-white size-12 flex items-center justify-center rounded-full transition-transform group-hover:scale-[1.12]"
+            className="text-white size-12 flex items-center justify-center rounded-full transition-transform group-hover:scale-[1.05]"
             style={{
               background: option.background,
             }}

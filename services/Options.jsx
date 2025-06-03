@@ -1,4 +1,5 @@
 import {
+  IconBackground,
   IconBrandFacebook,
   IconBrandInstagram,
   IconBrandLinkedin,
@@ -161,6 +162,12 @@ export const sideBarMenu = [
     iconColor: "#992bff",
   },
   {
+    name: "Background",
+    icon: IconBackground,
+    iconFilled: IconBackground,
+    iconColor: "#ff3b4b",
+  },
+  {
     name: "AI",
     icon: IconSparkles,
     iconFilled: IconSparkles,
@@ -170,6 +177,6 @@ export const sideBarMenu = [
     name: "Settings",
     icon: IconSettings,
     iconFilled: IconSettingsFilled,
-    iconColor: "#ff3b4b",
+    iconColor: "#13a3b5",
   },
 ];
