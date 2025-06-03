@@ -1,24 +1,36 @@
 import { Canvas } from "fabric";
 import { useEffect, useRef, useState } from "react";
 
-const CanvasEditor = () => {
-  const canvasRef = useRef(null);
+const CanvasEditor = ({ DesignInfo }) => {
+  const canvasRef = useRef();
   const [canvas, setCanvas] = useState(null);
 
+  /**
+   * Initialize Canvas with default values
+   */
   useEffect(() => {
-    if (canvasRef.current) {
+    if (canvasRef.current && DesignInfo) {
       const initCanvas = new Canvas(canvasRef.current, {
-        width: 500,
-        height: 800,
+        width: DesignInfo?.width,
+        height: DesignInfo?.height,
         backgroundColor: "#fff",
       });
+
+      // Set High Resolution Canvas
+      const scaleFactor = window.devicePixelRatio || 1;
+      initCanvas.set({
+        width: DesignInfo?.width * scaleFactor,
+        height: DesignInfo?.height * scaleFactor,
+        scale: 1 / scaleFactor,
+      });
+
       initCanvas.renderAll();
       setCanvas(initCanvas);
       return () => initCanvas.dispose();
     }
-  }, []);
+  }, [DesignInfo]);
   return (
-    <div>
+    <div className="p-10 flex flex-col items-center justify-center min-h-full">
       <canvas id="canvas" ref={canvasRef}></canvas>
     </div>
   );

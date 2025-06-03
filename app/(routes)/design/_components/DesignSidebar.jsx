@@ -5,8 +5,9 @@ import SidebarSettings from "./SidebarSettings";
 
 const DesignSidebar = () => {
   const [selectedMenu, setSelectedMenu] = useState("");
+
   return (
-    <div className={`flex ${!!selectedMenu && "bg-white"}`}>
+    <div className={`sticky top-0 z-10 flex ${selectedMenu ? "bg-white" : ""}`}>
       <ul className="w-[75px] flex flex-col">
         {sideBarMenu.map((menu, index) => (
           <li
@@ -15,7 +16,9 @@ const DesignSidebar = () => {
             className="group flex flex-col items-center justify-center h-[75px] cursor-pointer"
           >
             <div
-              className={`relative flex items-center justify-center size-8 rounded-md text-gray-500 transition-all ${selectedMenu == menu.name && "bg-white shadow-xl"} group-hover:bg-white group-hover:shadow-md`}
+              className={`relative flex items-center justify-center size-8 rounded-md text-gray-500 transition-all ${
+                selectedMenu === menu.name ? "bg-white shadow-xl" : ""
+              } group-hover:bg-white group-hover:shadow-md`}
             >
               {menu.name.toLowerCase() === "ai" && (
                 <IconCrown
@@ -27,13 +30,17 @@ const DesignSidebar = () => {
               )}
               <menu.icon
                 strokeWidth="1.65"
-                className={`transition-opacity ${selectedMenu == menu.name && "opacity-0"} group-hover:opacity-0`}
+                className={`transition-opacity ${
+                  selectedMenu === menu.name ? "opacity-0" : ""
+                } group-hover:opacity-0`}
               />
               <menu.iconFilled
                 strokeWidth="1.65"
-                fill={`${menu.iconColor}`}
-                color={`${menu.iconColor}`}
-                className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity ${selectedMenu !== menu.name && "opacity-0"} group-hover:opacity-100`}
+                fill={menu.iconColor}
+                color={menu.iconColor}
+                className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity ${
+                  selectedMenu !== menu.name ? "opacity-0" : ""
+                } group-hover:opacity-100`}
               />
             </div>
             <h2 className="text-[11px] font-medium text-gray-500 transition-colors">

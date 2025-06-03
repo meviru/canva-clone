@@ -15,12 +15,14 @@ const DesignEditor = () => {
   });
 
   return (
-    <div className="bg-gray-100 flex flex-col min-h-screen">
+    <div className="flex flex-col h-screen bg-gray-100">
       <DesignHeader DesignInfo={DesignInfo} />
-      <div className="flex grow-1">
+      {/* Main content area with scroll context */}
+      <div className="flex flex-1 overflow-hidden">
         <DesignSidebar />
-        <div className="grow-1">
-          <CanvasEditor />
+        {/* Canvas area scrolls if needed */}
+        <div className="flex-1 overflow-auto">
+          <CanvasEditor DesignInfo={DesignInfo} />
         </div>
       </div>
     </div>

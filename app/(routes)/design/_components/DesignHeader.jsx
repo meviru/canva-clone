@@ -16,18 +16,22 @@ import {
   IconUpload,
 } from "@tabler/icons-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const DesignHeader = ({ DesignInfo }) => {
   return (
-    <div className="p-2 px-5 flex items-center justify-between bg-linear-90 from-[#00c4cc] to-[#7d2ae8]">
+    <div className="sticky top-0 z-10 p-2 px-5 flex items-center justify-between bg-linear-90 from-[#00c4cc] to-[#7d2ae8]">
       <div className="flex items-center">
-        <Image
-          src={"/Canva_Logo.svg"}
-          width={80}
-          height={50}
-          alt={"logo"}
-          className="brightness-0 invert"
-        />
+        <Link href={"/workspace"}>
+          <Image
+            src={"/Canva_Logo.svg"}
+            width={80}
+            height={50}
+            alt={"logo"}
+            loading="lazy"
+            className="brightness-0 invert"
+          />
+        </Link>
         <Separator
           orientation="vertical"
           className="mx-3 ml-5 min-h-8 opacity-30"
