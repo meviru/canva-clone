@@ -29,3 +29,10 @@ export const GetDesign = query({
         return await ctx.db.get(args.id);
     }
 })
+
+export const GetDesignsList = query({
+    args: {},
+    handler: async (ctx) => {
+        return await ctx.db.query("designs").collect();
+    }
+})

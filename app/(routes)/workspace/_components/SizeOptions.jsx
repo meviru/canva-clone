@@ -40,7 +40,6 @@ const SizeOptions = () => {
             className="text-white size-12 flex items-center justify-center rounded-full transition-transform group-hover:scale-[1.12]"
             style={{
               background: option.background,
-              boxShadow: `0 0 10px -5px ${option.background}`,
             }}
           >
             <option.icon size={26} />
