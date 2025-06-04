@@ -19,7 +19,9 @@ const DesignSidebar = () => {
           >
             <div
               className={`relative flex items-center justify-center size-8 rounded-md text-gray-500 transition-all ${
-                selectedMenu.name === menu.name ? "bg-white shadow-md" : ""
+                selectedMenu.name === menu.name
+                  ? "bg-white shadow-md inset-shadow-2xs"
+                  : ""
               } group-hover:bg-white group-hover:shadow-md`}
             >
               {menu.name.toLowerCase() === "ai" && (
