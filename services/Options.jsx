@@ -1,3 +1,4 @@
+import BackgroundSettings from "@/core/components/BackgroundSettings";
 import {
   IconBackground,
   IconBrandFacebook,
@@ -141,7 +142,7 @@ export const sideBarMenu = [
     name: "Desings",
     icon: IconTable,
     iconFilled: IconTableFilled,
-    iconColor: "#138eff",
+    iconColor: "#13a3b5",
   },
   {
     name: "Elements",
@@ -150,22 +151,23 @@ export const sideBarMenu = [
     iconColor: "#4a53fa",
   },
   {
-    name: "Photos",
-    icon: IconPhoto,
-    iconFilled: IconPhotoFilled,
-    iconColor: "#0ba84a",
-  },
-  {
     name: "Text",
     icon: IconClipboardTypography,
     iconFilled: IconClipboardTypographyFilled,
     iconColor: "#992bff",
   },
   {
+    name: "Photos",
+    icon: IconPhoto,
+    iconFilled: IconPhotoFilled,
+    iconColor: "#0ba84a",
+  },
+  {
     name: "Background",
     icon: IconBackground,
     iconFilled: IconBackground,
     iconColor: "#ff3b4b",
+    component: <BackgroundSettings />,
   },
   {
     name: "AI",
@@ -177,6 +179,6 @@ export const sideBarMenu = [
     name: "Settings",
     icon: IconSettings,
     iconFilled: IconSettingsFilled,
-    iconColor: "#13a3b5",
+    iconColor: "#138eff",
   },
 ];

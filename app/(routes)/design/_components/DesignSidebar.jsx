@@ -7,17 +7,19 @@ const DesignSidebar = () => {
   const [selectedMenu, setSelectedMenu] = useState("");
 
   return (
-    <div className={`sticky top-0 z-10 flex ${selectedMenu ? "bg-white" : ""}`}>
+    <div
+      className={`sticky top-0 z-10 flex ${selectedMenu.name ? "bg-white" : ""}`}
+    >
       <ul className="w-[75px] flex flex-col">
         {sideBarMenu.map((menu, index) => (
           <li
             key={index}
-            onClick={() => setSelectedMenu(menu.name)}
+            onClick={() => setSelectedMenu(menu)}
             className="group flex flex-col items-center justify-center h-[75px] cursor-pointer"
           >
             <div
               className={`relative flex items-center justify-center size-8 rounded-md text-gray-500 transition-all ${
-                selectedMenu === menu.name ? "bg-white shadow-md" : ""
+                selectedMenu.name === menu.name ? "bg-white shadow-md" : ""
               } group-hover:bg-white group-hover:shadow-md`}
             >
               {menu.name.toLowerCase() === "ai" && (
@@ -31,7 +33,7 @@ const DesignSidebar = () => {
               <menu.icon
                 strokeWidth="1.65"
                 className={`transition-opacity ${
-                  selectedMenu === menu.name ? "opacity-0" : ""
+                  selectedMenu.name === menu.name ? "opacity-0" : ""
                 } group-hover:opacity-0`}
               />
               <menu.iconFilled
@@ -39,7 +41,7 @@ const DesignSidebar = () => {
                 fill={menu.iconColor}
                 color={menu.iconColor}
                 className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity ${
-                  selectedMenu !== menu.name ? "opacity-0" : ""
+                  selectedMenu.name !== menu.name ? "opacity-0" : ""
                 } group-hover:opacity-100`}
               />
             </div>

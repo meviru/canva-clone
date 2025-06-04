@@ -54,7 +54,7 @@ const DesignHeader = ({ DesignInfo }) => {
         </div>
         <Separator orientation="vertical" className="mx-3 min-h-8 opacity-30" />
         <Tooltip>
-          <TooltipTrigger className="cursor-pointer border-none text-white transition-colors hover:bg-white/5 hover:text-white">
+          <TooltipTrigger className="cursor-pointer border-none text-white">
             <IconCloudCheck strokeWidth="1.75" className="size-6" />
           </TooltipTrigger>
           <TooltipContent>All changes saved</TooltipContent>

@@ -124,3 +124,8 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.circle-picker::before {
+  content: "";
+  display: block;
+}
