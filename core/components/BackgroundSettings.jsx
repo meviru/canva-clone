@@ -5,7 +5,12 @@ import { IconSearch } from "@tabler/icons-react";
 import { useState } from "react";
 
 const BackgroundSettings = ({ selectedMenu }) => {
-  const [bgColor, setBgColor] = useState("#fff");
+  const [bgColor, setBgColor] = useState({
+    r: 255,
+    g: 255,
+    b: 255,
+    a: 1,
+  });
   return (
     <div className="flex flex-col h-screen">
       <TopbarOptions selectedMenu={selectedMenu}>

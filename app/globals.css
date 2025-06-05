@@ -129,3 +129,17 @@ body {
   content: "";
   display: block;
 }
+
+.chrome-picker .flexbox-fix:last-of-type > div:last-of-type {
+  width: 26px !important;
+  margin-left: 1rem;
+}
+
+.chrome-picker .flexbox-fix input {
+  height: 40px !important;
+  border-radius: 4px !important;
+}
+
+.circle-picker > span > div > span > div {
+  border: 1px solid color-mix(in oklab, var(--ring) 50%, transparent) !important;
+}
