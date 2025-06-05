@@ -48,17 +48,11 @@ const ColorPicker = ({ value, onColorChange }) => {
                   paddingRight: 0,
                   paddingBottom: 0,
                 },
+                saturation: {
+                  borderRadius: 8,
+                },
                 color: {
                   display: "none",
-                },
-                hue: {
-                  height: "8px",
-                  borderRadius: "6px",
-                  marginBottom: "12px",
-                },
-                alpha: {
-                  height: "8px",
-                  borderRadius: "6px",
                 },
               },
             }}

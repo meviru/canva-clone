@@ -135,10 +135,15 @@ body {
   margin-left: 1rem;
 }
 
+.chrome-picker .flexbox-fix:last-of-type > div:last-of-type > div {
+  margin-top: 7px !important;
+}
+
 .chrome-picker .flexbox-fix input {
   height: 40px !important;
-  border-radius: 4px !important;
+  border-radius: 8px !important;
 }
+
 
 .circle-picker > span > div > span > div {
   border: 1px solid color-mix(in oklab, var(--ring) 50%, transparent) !important;
