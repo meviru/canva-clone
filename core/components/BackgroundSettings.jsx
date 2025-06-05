@@ -1,6 +1,8 @@
+import { useCanvasHook } from "@/app/(routes)/design/[designId]/page";
 import { Input } from "@/components/ui/input";
 import ColorPicker from "@/shared/components/ColorPicker";
 import TopbarOptions from "@/shared/components/TopbarOptions";
+import { rgbaToHex } from "@/shared/utils";
 import { IconSearch } from "@tabler/icons-react";
 import { useState } from "react";
 
@@ -11,6 +13,19 @@ const BackgroundSettings = ({ selectedMenu }) => {
     b: 255,
     a: 1,
   });
+
+  const { canvasEditor } = useCanvasHook();
+
+  const onColorChange = (color) => {
+    setBgColor(color);
+    const bgColor = rgbaToHex(color);
+    canvasEditor?.set({
+      backgroundColor: bgColor,
+      backgroundImage: null,
+    });
+    canvasEditor?.renderAll();
+  };
+
   return (
     <div className="flex flex-col h-screen">
       <TopbarOptions selectedMenu={selectedMenu}>
@@ -26,7 +41,7 @@ const BackgroundSettings = ({ selectedMenu }) => {
       <div className="grow-1 overflow-auto p-5 pt-3">
         <ColorPicker
           value={bgColor}
-          onColorChange={(color) => setBgColor(color)}
+          onColorChange={(color) => onColorChange(color)}
         />
       </div>
     </div>

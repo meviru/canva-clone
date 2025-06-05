@@ -1,10 +1,11 @@
 import { Canvas } from "fabric";
 import { useEffect, useRef, useState } from "react";
+import { useCanvasHook } from "../[designId]/page";
 
 const CanvasEditor = ({ DesignInfo }) => {
   const canvasRef = useRef();
   const [canvas, setCanvas] = useState(null);
-
+  const { canvasEditor, setCanvasEditor } = useCanvasHook();
   /**
    * Initialize Canvas with default values
    */
@@ -26,6 +27,7 @@ const CanvasEditor = ({ DesignInfo }) => {
 
       initCanvas.renderAll();
       setCanvas(initCanvas);
+      setCanvasEditor(initCanvas);
       return () => initCanvas.dispose();
     }
   }, [DesignInfo]);

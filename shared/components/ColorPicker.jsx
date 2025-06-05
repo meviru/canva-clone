@@ -1,24 +1,15 @@
 "use client";
 
-import { IconPaletteFilled } from "@tabler/icons-react";
+import { IconPalette } from "@tabler/icons-react";
 import { useMemo, useState } from "react";
 import { ChromePicker, CirclePicker } from "react-color";
+import { getContrastColor, rgbaToHex } from "../utils";
 
 const ColorPicker = ({ value, onColorChange }) => {
   const [displayPicker, setDisplayPicker] = useState(false);
 
   const handleClick = () => setDisplayPicker(!displayPicker);
   const handleClose = () => setDisplayPicker(false);
-
-  const rgbaToHex = ({ r, g, b }) =>
-    `#${[r, g, b]
-      .map((x) => x.toString(16).padStart(2, "0"))
-      .join("")}`.toUpperCase();
-
-  function getContrastColor({ r, g, b }) {
-    const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-    return luminance > 0.6 ? "#000" : "#fff";
-  }
 
   const iconColor = useMemo(() => getContrastColor(value), [value]);
 
@@ -31,7 +22,7 @@ const ColorPicker = ({ value, onColorChange }) => {
         }}
         onClick={handleClick}
       >
-        <IconPaletteFilled size={20} style={{ color: iconColor }} />
+        <IconPalette size={20} style={{ color: iconColor }} />
       </div>
 
       {displayPicker && (
