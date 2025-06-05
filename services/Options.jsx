@@ -1,4 +1,5 @@
 import BackgroundSettings from "@/core/components/BackgroundSettings";
+import UploadImageSettings from "@/core/components/UploadImageSettings";
 import {
   IconBackground,
   IconBrandFacebook,
@@ -9,6 +10,7 @@ import {
   IconBrandYoutubeFilled,
   IconClipboardTypography,
   IconClipboardTypographyFilled,
+  IconCloudUpload,
   IconCreditCard,
   IconCreditCardFilled,
   IconFileFilled,
@@ -155,6 +157,13 @@ export const sideBarMenu = [
     icon: IconClipboardTypography,
     iconFilled: IconClipboardTypographyFilled,
     iconColor: "#992bff",
+  },
+  {
+    name: "Uploads",
+    icon: IconCloudUpload,
+    iconFilled: IconCloudUpload,
+    iconColor: "#ff6105",
+    component: <UploadImageSettings />,
   },
   {
     name: "Photos",
