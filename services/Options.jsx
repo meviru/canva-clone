@@ -167,7 +167,9 @@ export const sideBarMenu = [
     icon: IconBackground,
     iconFilled: IconBackground,
     iconColor: "#ff3b4b",
-    component: <BackgroundSettings />,
+    component: ({ selectedMenu }) => (
+      <BackgroundSettings selectedMenu={selectedMenu} />
+    ),
   },
   {
     name: "AI",
