@@ -12,9 +12,8 @@ const AddImageSettings = ({ selectedMenu }) => {
   const { designId } = useParams();
   const fileInputRef = useRef(null);
   const [loading, setLoading] = useState(false);
-  
+
   const handleUpload = async () => {
-    setLoading(true);
     const fileInput = fileInputRef.current;
     if (!fileInput || !fileInput.files || fileInput.files.length === 0) {
       alert("Please select a file to upload");
@@ -22,7 +21,30 @@ const AddImageSettings = ({ selectedMenu }) => {
     }
 
     const file = fileInput.files[0];
-    console.log(file);
+    const formData = new FormData();
+    formData.append("file", file);
+
+    setLoading(true);
+    try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/upload`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      const result = await response.json();
+      if (result.success) {
+        console.log("Uploaded Image URL:", result.image.url);
+      } else {
+        console.error("Upload failed:", result.error);
+      }
+    } catch (error) {
+      console.error("Upload error:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
