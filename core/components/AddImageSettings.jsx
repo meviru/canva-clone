@@ -1,20 +1,30 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import TopbarOptions from "@/shared/components/TopbarOptions";
 import UploadedImage from "@/shared/components/UploadedImage";
 import { IconDots, IconLoaderQuarter, IconSearch } from "@tabler/icons-react";
 import { useParams } from "next/navigation";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const AddImageSettings = ({ selectedMenu }) => {
   const { designId } = useParams();
+  const fileInputRef = useRef(null);
   const [loading, setLoading] = useState(false);
-
-  const onFileUpload = async (e) => {
+  
+  const handleUpload = async () => {
     setLoading(true);
-    const file = e.target.files[0];
-    setLoading(false);
+    const fileInput = fileInputRef.current;
+    if (!fileInput || !fileInput.files || fileInput.files.length === 0) {
+      alert("Please select a file to upload");
+      return;
+    }
+
+    const file = fileInput.files[0];
+    console.log(file);
   };
+
   return (
     <div className="flex flex-col h-screen">
       <TopbarOptions selectedMenu={selectedMenu}>
@@ -46,8 +56,9 @@ const AddImageSettings = ({ selectedMenu }) => {
               id="uploadImage"
               className="hidden"
               type="file"
+              ref={fileInputRef}
               multiple={false}
-              onChange={onFileUpload}
+              onChange={handleUpload}
             />
           </div>
           <Button size="icon" className="p-0 shrink-0 h-10 w-10 cursor-pointer">
