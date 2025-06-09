@@ -11,30 +11,8 @@ const AddImageSettings = ({ selectedMenu }) => {
   const [loading, setLoading] = useState(false);
 
   const onFileUpload = async (e) => {
-    debugger;
     setLoading(true);
     const file = e.target.files[0];
-    const res = await fetch(
-      `/api/upload?fileName=${file.name}&fileType=${file.type}`
-    );
-
-    if (!res.ok) {
-      const text = await res.text();
-      console.error("Upload request failed:", res.status, text);
-      throw new Error("Failed to get upload URL");
-    }
-
-    const data = await res.json(); // ✅ Only runs if response is OK and not empty
-    console.log("Upload data:", data);
-
-    // await fetch(url, {
-    //   method: "PUT",
-    //   headers: {
-    //     "Content-Type": file.type,
-    //   },
-    //   body: file,
-    // });
-
     setLoading(false);
   };
   return (
