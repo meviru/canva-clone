@@ -6,12 +6,37 @@ import TopbarOptions from "@/shared/components/TopbarOptions";
 import UploadedImage from "@/shared/components/UploadedImage";
 import { IconDots, IconLoaderQuarter, IconSearch } from "@tabler/icons-react";
 import { useParams } from "next/navigation";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const AddImageSettings = ({ selectedMenu }) => {
   const { designId } = useParams();
   const fileInputRef = useRef(null);
+  const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  const getImages = async () => {
+    try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/images`
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch images");
+      }
+      return await response.json();
+    } catch (error) {
+      console.error("Error fetching images:", error);
+      return null;
+    }
+  };
+
+  useEffect(() => {
+    (async () => {
+      const data = await getImages();
+      if (data) {
+        setImages(data.images);
+      }
+    })();
+  }, []);
 
   const handleUpload = async () => {
     const fileInput = fileInputRef.current;
@@ -89,7 +114,7 @@ const AddImageSettings = ({ selectedMenu }) => {
         </div>
       </TopbarOptions>
       <div className="grow-1 overflow-auto p-5 pt-3">
-        <UploadedImage />
+        <UploadedImage images={images} />
       </div>
     </div>
   );

@@ -38,4 +38,16 @@ app.post("/api/upload", upload.single("file"), async (req, res) => {
     }
 });
 
+// Get images
+app.get("/api/images", async (req, res) => {
+    try {
+        const response = await imagekit.listFiles();
+        res.status(200).json({ success: true, images: response });
+    } catch (error) {
+        console.error("Get images error:", error);
+        res.status(500).json({ success: false, error: "Get images failed" });
+    }
+});
+
+
 app.listen(port, () => console.log(`Server running on port ${port}`));
