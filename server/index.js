@@ -25,10 +25,12 @@ const imagekit = new ImageKit({
 app.post("/api/upload", upload.single("file"), async (req, res) => {
     try {
         const { originalname, buffer } = req.file;
+        const { designId } = req.body;
+
 
         const response = await imagekit.upload({
             file: buffer, // buffer from multer
-            fileName: originalname,
+            fileName: designId + "-" + originalname,
         });
 
         res.status(200).json({ success: true, image: response });

@@ -7,6 +7,7 @@ import UploadedImage from "@/shared/components/UploadedImage";
 import { IconDots, IconLoaderQuarter, IconSearch } from "@tabler/icons-react";
 import { useParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { toast } from "sonner";
 
 const AddImageSettings = ({ selectedMenu }) => {
   const { designId } = useParams();
@@ -41,13 +42,14 @@ const AddImageSettings = ({ selectedMenu }) => {
   const handleUpload = async () => {
     const fileInput = fileInputRef.current;
     if (!fileInput || !fileInput.files || fileInput.files.length === 0) {
-      alert("Please select a file to upload");
+      toast("Please select a file to upload");
       return;
     }
 
     const file = fileInput.files[0];
     const formData = new FormData();
     formData.append("file", file);
+    formData.append("designId", designId);
 
     setLoading(true);
     try {
